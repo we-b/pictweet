@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header class="header">
+  <div class="header__bar row">
+    <h1 class="grid-6">
+      <a href="/tweets">PicTweet</a>
+    </h1>
+    <a class="post grid-6" href="tweets/new">投稿する</a>
+  </div>
+</header>
 
 <%= yield %>
 
+<footer>
+  <p>
+    Copyright PicTweet 2014.
+  </p>
+</footer>
 </body>
 </html>
