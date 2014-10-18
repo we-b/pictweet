@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => [:username]
+  belongs_to :user
+  has_many :tweets
 
   #usernameを必須とする
   validates_uniqueness_of :username

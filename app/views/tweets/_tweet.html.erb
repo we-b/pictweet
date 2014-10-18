@@ -3,6 +3,7 @@
     <p>
       <%= br(tweet.text) %>
     </p>
-    <span class="name"><%= tweet.name %></span>
+    <span class="name"><%= tweet.user_id %></span>
   </div>
+  <%= paginate(@tweets) %>
 </div>
