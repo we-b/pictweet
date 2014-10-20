@@ -34,6 +34,8 @@ gem 'devise'
 
 gem 'kaminari'
 
+gem 'paperclip', '~> 4.1'
+
 # Use unicorn as the app server
 gem 'unicorn'
 

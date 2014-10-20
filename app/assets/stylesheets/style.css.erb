@@ -20,7 +20,15 @@ body, html {
 body {
   padding-top: 60px;
 }
-
+.clearfix {
+  background: #f00;
+  *zoom: 1;
+}
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
 h1, h2, h3, h4, h5, h6, body {
   line-height: 1.57;
   letter-spacing: 0.15em;
@@ -37,7 +45,6 @@ a {
 a:hover {
   color: #57c3e9;
 }
-
 .bold {
   font-weight: bold;
 }

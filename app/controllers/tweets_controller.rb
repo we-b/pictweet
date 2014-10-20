@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
 
   def index
     @tweets = Tweet.page(params[:page]).per(3).order(:id)
