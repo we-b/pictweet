@@ -10,7 +10,8 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet.create(create_params)
+    Tweet.create(create_params)
+    # @tweet = Tweet.create(create_params)
     # @tweet.photos.build
   end
 
