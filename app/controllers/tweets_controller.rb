@@ -15,7 +15,6 @@ class TweetsController < ApplicationController
   end
 
   private
-
   def create_params
     params.permit(:name, :image, :text, :photo).merge(user_id: current_user.username)
   end
