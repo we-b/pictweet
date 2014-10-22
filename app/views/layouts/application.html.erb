@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Pictweet</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
@@ -23,11 +23,20 @@
 
 </head>
 <body>
+
 <header class="header">
   <div class="header__bar row">
     <h1 class="grid-6">
       <a href="/tweets">PicTweet</a>
     </h1>
+    <% if user_signed_in? %>
+      ユーザー名：<strong><%= current_user.username %></strong>
+      <%= link_to '編集', edit_user_registration_path, :class => 'post grid-6' %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, :class => 'post grid-6'  %>
+    <% else %>
+      <%= link_to "ログイン", new_user_session_path, :class => 'post grid-6'  %>
+      <%= link_to "新規登録", new_user_registration_path, :class => 'post grid-6'  %>
+    <% end %>
     <a class="post grid-6" href="/tweets/new">投稿する</a>
   </div>
 </header>
