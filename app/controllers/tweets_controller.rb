@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
 
   def index
-    @tweets = Tweet.page(params[:page]).per(3).order(:id)
+    @tweets = Tweet.all
   end
 
   def new
@@ -13,7 +13,7 @@ class TweetsController < ApplicationController
 
   private
   def create_params
-    params.permit(:name, :image, :text, :photo).merge(user_id: current_user.username)
+    params.permit(:name, :image, :text)
   end
-  
+
 end
