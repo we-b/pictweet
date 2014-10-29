@@ -2,7 +2,7 @@
 worker_processes 4
 
 # RAILS_ROOT を指定
-working_directory "/var/www/html/log/current"
+working_directory "/var/www/html/pictweet"
 
 # ソケット
 listen File.expand_path('tmp/sockets/unicorn.sock', ENV['RAILS_ROOT'])
