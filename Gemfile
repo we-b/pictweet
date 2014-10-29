@@ -1,11 +1,9 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use mysql as the database for Active Record
 gem 'mysql2'
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,10 +28,11 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'compass-rails'
+gem 'pry-rails'
+
 gem 'devise'
-
 gem 'kaminari'
-
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 
 # Use unicorn as the app server
@@ -44,5 +43,3 @@ gem 'unicorn'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-gem 'compass-rails'

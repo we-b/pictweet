@@ -2,5 +2,7 @@
   <p>
     <%= br(tweet.text) %>
   </p>
-  <span class="name"><a href="#"><span>投稿者</span><%= tweet.name %></a></span>
+  <% if tweet.user_id %>
+    <span class="name"><a href="#"><span>投稿者</span><%= tweet.name %></a></span>
+  <% end %>
 </div>
