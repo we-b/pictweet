@@ -2,5 +2,7 @@
   <p>
     <%= br(tweet.text) %>
   </p>
-  <span class="name"><%= tweet.user_id %></span>
+  <% if tweet.user_id %>
+    <span class="name"><%= tweet.user_id %></span>
+  <% end %>
 </div>
