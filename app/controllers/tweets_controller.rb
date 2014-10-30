@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
   # before_filter :authenticate_user!
 
   def index
-    @tweets = Tweet.page(params[:page]).per(3).order(:id)
+    @tweets = Tweet.page(params[:page]).per(3).order(:id).order('created_at DESC')
   end
 
   def new
