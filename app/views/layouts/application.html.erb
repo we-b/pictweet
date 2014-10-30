@@ -32,7 +32,7 @@
     <% if user_signed_in? %>
       <div class="user__name">
         ユーザー名：
-        <a href="<%= edit_user_registration_path %>">
+        <a href="/users/<%= current_user.id %>">
           <strong>
             <%= current_user.email %>
           </strong>
