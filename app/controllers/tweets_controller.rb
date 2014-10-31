@@ -5,7 +5,19 @@ class TweetsController < ApplicationController
     @tweets = Tweet.page(params[:page]).per(3).order(:id).order('created_at DESC')
   end
 
-  def new
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    @tweet = Tweet.find(id_params[:id])
+    @tweet.destroy
+  end
+
+  def show
+    @tweet = Tweet.find(id_params[:id])
   end
 
   def create
@@ -17,5 +29,9 @@ class TweetsController < ApplicationController
   private
   def create_params
     params.permit(:name, :image, :text, :photo).merge(user_id: current_user.id)
+  end
+
+  def id_params
+    params.permit(:id)
   end
 end

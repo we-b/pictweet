@@ -37,6 +37,7 @@
             <%= current_user.email %>
           </strong>
         </a>
+        <a href="<%= edit_user_registration_path %>">編集</a>
       </div>
       <div class="log__out">
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
