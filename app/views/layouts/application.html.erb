@@ -29,7 +29,18 @@
     <h1 class="grid-6">
       <a href="/tweets">PicTweet</a>
     </h1>
-    <a class="post grid-6" href="/tweets/new">投稿する</a>
+    <% if user_signed_in? %>
+      <h1 class="post grid-6"><%= link_to "log out", destroy_user_session_path, :method => :delete %></h1>
+      <h1 class="grid-6">
+        [<%= current_user.email %>]
+      </h1>
+      
+    <% end %>
+    <% if user_signed_in? %>
+      <a class="post grid-6" href="/tweets/new">投稿する</a>
+    <% else %>
+      <h1 class="post grid-6"><%= link_to "log in", new_user_session_path %></h1>
+    <% end %>
   </div>
 </header>
 

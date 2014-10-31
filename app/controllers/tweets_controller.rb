@@ -5,15 +5,21 @@ class TweetsController < ApplicationController
   end
 
   def new
+    unless user_signed_in?
+      redirect_to :action => "index"
+    end
   end
 
   def create
-    Tweet.create(create_params)
+    unless user_signed_in?
+      redirect_to :action => "index"
+    else
+      Tweet.create(create_params)
+    end
   end
 
   private
   def create_params
     params.permit(:name, :image, :text)
   end
-
 end

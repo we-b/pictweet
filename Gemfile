@@ -41,3 +41,4 @@ gem 'compass-rails'
 gem 'pry-rails'
 
 gem 'kaminari'
+gem 'devise'
