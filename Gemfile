@@ -39,3 +39,5 @@ gem 'spring',        group: :development
 
 gem 'compass-rails'
 gem 'pry-rails'
+
+gem 'kaminari'
