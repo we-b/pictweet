@@ -27,27 +27,28 @@
 <header class="header">
   <div class="header__bar row">
     <h1 class="grid-6">
-      <a href="/tweets">PicTweet</a>
-    </h1>
-    <% if user_signed_in? %>
-      <div class="user__name">
-        ユーザー名：
-        <a href="/users/<%= current_user.id %>">
-          <strong>
-            <%= current_user.email %>
-          </strong>
-        </a>
-        <a href="<%= edit_user_registration_path %>">編集</a>
+        <a href="/">PicTweet</a>
+      </h1>
+      <% if user_signed_in? %>
+      <div class="user_nav grid-6">
+        <a class="post" href="/tweets/new">投稿する</a>
+
+        <span><%= current_user.username %>
+          <ul class="user__info">
+            <li>
+              <a href="<%= edit_user_registration_path %>">編集</a>
+            </li>
+            <li>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        </span>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, :class => 'post grid-6' %>
+          <%= link_to "新規登録", new_user_registration_path, :class => 'post grid-6' %>
+        <% end %>
       </div>
-      <div class="log__out">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </div>
-      <a class="post grid-6" href="/tweets/new">投稿する</a>
-    <% else %>
-      <%= link_to "ログイン", new_user_session_path, :class => 'post grid-6'  %>
-      <%= link_to "新規登録", new_user_registration_path, :class => 'post grid-6'  %>
-    <% end %>
-  </div>
+    </div>
 </header>
 
 <%= yield %>
