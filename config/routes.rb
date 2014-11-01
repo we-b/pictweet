@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   root  'tweets#index'
 
-  resources :tweets, :except => [:new]
+  resources :tweets
   resources :users, :only => [:show]
 end

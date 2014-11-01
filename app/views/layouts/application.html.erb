@@ -36,7 +36,10 @@
         <span><%= current_user.username %>
           <ul class="user__info">
             <li>
-              <a href="<%= edit_user_registration_path %>">編集</a>
+              <a href="/users/<%= current_user.id %>">マイページ</a>
+            </li>
+            <li>
+              <a href="<%= edit_user_registration_path %>">設定</a>
             </li>
             <li>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

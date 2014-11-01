@@ -1,6 +1,6 @@
 
-<p><%= @user.username %>さんの投稿一覧</p>
 <div class="contents row">
+<p><%= @user.username %>さんの投稿一覧</p>
   <%= render @tweets %>
   <%= paginate(@tweets) %>
 </div>
