@@ -35,7 +35,6 @@ gem 'sprockets', '2.11.0'
 
 gem 'devise'
 gem 'kaminari'
-gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 
 # Use unicorn as the app server
 gem 'unicorn'
@@ -45,4 +44,3 @@ gem 'unicorn'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'sprockets', '2.11.0'

@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
-  before_action :redirect, :only => [:new, :create], unless: :user_signed_in?
+
+  before_action :redirect_to_index, :except => [:index]
 
   def index
     @tweets = Tweet.page(params[:page]).per(10).order("created_at DESC")
@@ -9,16 +10,35 @@ class TweetsController < ApplicationController
   end
 
   def create
-    Tweet.create(create_params)
+    Tweet.create(tweet_params)
+  end
+
+  def destroy
+    tweet = Tweet.find(id_params[:id])
+    tweet.destroy if tweet.user_id == current_user.id
+    redirect_to :action => "index"
+  end
+
+  def edit
+    @tweet = Tweet.find(id_params[:id])
+  end
+
+  def update
+    tweet = Tweet.find(id_params[:id])
+    tweet.update_attributes(tweet_params)
   end
 
   private
-  def create_params
-    params.permit(:name, :image, :text).merge(user_id: current_user.id)
+  def tweet_params
+    params.permit(:image, :text).merge(user_id: current_user.id)
   end
 
-  def redirect
-    redirect_to :action => "index"
+  def id_params
+    params.permit(:id)
+  end
+
+  def redirect_to_index
+    redirect_to :action => "index" unless user_signed_in?
   end
 end
 
