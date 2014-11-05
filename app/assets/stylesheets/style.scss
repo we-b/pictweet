@@ -153,15 +153,13 @@ header.header {
     height: 100px;
     position: absolute;
     right: 0;
-    &:hover ul {
-      display: block;
-    }
     span {
       top: 5px;
       display: block;
       float: right;
       width: 150px;
-      font-size: 1.4em;
+      height: 50px;
+      font-size: 1em;
       cursor: pointer;
       position: relative;
       &:after {
@@ -169,14 +167,15 @@ header.header {
         font-size: .7em;
         padding-left: 10px;
       }
-      &:hover {
+      &:hover ul {
         color: $accent;
+        display: block;
       }
     }
     ul {
       display: none;
       position: absolute;
-      top: 51px;
+      top: 46px;
       right: 0;
       border-left: 1px solid #d8d8d8;
       border-right: 1px solid #d8d8d8;
