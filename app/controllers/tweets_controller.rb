@@ -9,12 +9,12 @@ class TweetsController < ApplicationController
   end
 
   def create
-      Tweet.create(create_params)
+    Tweet.create(create_params)
   end
 
   private
   def create_params
-    params.permit(:name, :image, :text)
+    params.permit(:name, :image, :text).merge(user_id: current_user.id)
   end
 
   def redirect
