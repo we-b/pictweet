@@ -11,6 +11,7 @@ class TweetsController < ApplicationController
 
   def create
     Tweet.create(create_params)
+    # Tweet.create(image: create_params[:image], text: create_params[:text], user_id: current_user.id)
   end
 
   def destroy
@@ -31,6 +32,7 @@ class TweetsController < ApplicationController
   private
   def create_params
     params.permit(:image, :text).merge(user_id: current_user.id)
+    # params.permit(:image, :text)
   end
 
   def update_params
