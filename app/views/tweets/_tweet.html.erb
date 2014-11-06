@@ -7,7 +7,7 @@
           <a href="/tweets/<%= tweet.id %>/edit">編集</a>
         </li>
         <li>   
-          <%= link_to "削除", tweet, method: :delete, id: tweet.id %>
+          <%= link_to "削除", tweet, method: :delete, id: tweet.id, data: { confirm: "削除しますか？" } %>
         </li>
       </ul>
     </div>
