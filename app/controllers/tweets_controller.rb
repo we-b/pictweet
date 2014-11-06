@@ -26,7 +26,7 @@ class TweetsController < ApplicationController
 
   def update
     tweet = Tweet.find(id_params[:id])
-    tweet.update_attributes(update_params)
+    tweet.update_attributes(update_params) if tweet.user_id == current_user.id
   end
 
   private
