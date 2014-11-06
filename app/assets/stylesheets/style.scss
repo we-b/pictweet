@@ -157,7 +157,7 @@ header.header {
       top: 5px;
       display: block;
       float: left;
-      margin-left: 38px;
+      margin-left: 30px;
       width: 150px;
       height: 50px;
       font-size: 1em;
@@ -166,7 +166,7 @@ header.header {
       &:after {
         content: '▼';
         font-size: .7em;
-        padding-left: 10px;
+        margin-left: -4px;
       }
       &:hover ul {
         color: $accent;
@@ -219,6 +219,9 @@ div.contents.row {
       padding-right: 5px;
       font-size: 1.2em;
     }
+  }
+  .new_user{
+  font-family: "游ゴシック", "YuGothic";
   }
   div.content__post {
     @include boxBase(20px 0 ,30px);
@@ -330,8 +333,6 @@ div.contents.row {
       @include boxBase(5px 0 15px,10px);
       border: 1px solid $gray;
       border-radius: 5px;
-    }
-    .input__url{
       font-family: "游ゴシック", "YuGothic";
     }
     input[type="submit"] {
