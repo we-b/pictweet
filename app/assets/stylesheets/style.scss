@@ -331,6 +331,9 @@ div.contents.row {
       border: 1px solid $gray;
       border-radius: 5px;
     }
+    .input__url{
+      font-family: "游ゴシック", "YuGothic";
+    }
     input[type="submit"] {
       @extend .transition;
       background-color: $accent;
