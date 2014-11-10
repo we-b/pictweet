@@ -10,14 +10,12 @@ class TweetsController < ApplicationController
   end
 
   def create
-    Tweet.create(create_params)
-    # Tweet.create(image: create_params[:image], text: create_params[:text], user_id: current_user.id)
+    Tweet.create(image: tweet_params[:image], text: tweet_params[:text], user_id: current_user.id)
   end
 
   def destroy
     tweet = Tweet.find(id_params[:id])
     tweet.destroy if tweet.user_id == current_user.id
-    redirect_to :action => "index"
   end
 
   def edit
@@ -26,16 +24,11 @@ class TweetsController < ApplicationController
 
   def update
     tweet = Tweet.find(id_params[:id])
-    tweet.update_attributes(update_params) if tweet.user_id == current_user.id
+    tweet.update_attributes(tweet_params) if tweet.user_id == current_user.id
   end
 
   private
-  def create_params
-    params.permit(:image, :text).merge(user_id: current_user.id)
-    # params.permit(:image, :text)
-  end
-
-  def update_params
+  def tweet_params
     params.permit(:image, :text)
   end
 

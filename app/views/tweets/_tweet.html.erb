@@ -4,10 +4,10 @@
       <span><%= image_tag 'arrow_top.png' %></span>
       <ul class="more_list">
         <li>
-          <a href="/tweets/<%= tweet.id %>/edit">編集</a>
+          <%= link_to '編集', edit_tweet_path(tweet) %>
         </li>
-        <li>   
-          <%= link_to "削除", tweet, method: :delete, id: tweet.id, data: { confirm: "削除しますか？" } %>
+        <li>
+          <%= link_to '削除', tweet_path(tweet), :method => :delete %>
         </li>
       </ul>
     </div>
