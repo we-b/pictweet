@@ -3,8 +3,11 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  # association
   has_many :tweets
 
-  validates_uniqueness_of :username
-  validates_presence_of :username
+  # validation
+  validates_uniqueness_of :nickname
+  validates_presence_of :nickname
 end

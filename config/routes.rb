@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root  'tweets#index' #ルートを設定
+  root  'tweets#index'
 
   resources :tweets, :except => [:show]
   # get     '/tweets'           => 'tweets#index'
