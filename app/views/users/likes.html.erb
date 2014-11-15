@@ -1,38 +1,6 @@
 <div class="contents row">
-  <% @likes.each do |like| %>
-    <div class="content__post" style="background-image: url(<%= like.tweet.image %>);">
-      <% if current_user && like.tweet.user_id == current_user.id %>
-        <div class="more">
-          <span><%= image_tag 'arrow_top.png' %></span>
-          <ul class="more_list">
-            <li>
-              <%= link_to '編集', edit_tweet_path(like.tweet) %>
-            </li>
-            <li>
-              <%= link_to '削除', tweet_path(like.tweet), :method => :delete %>
-            </li>
-          </ul>
-        </div>
-      <% end %>
-      <p>
-        <%= br(like.tweet.text) %>
-      </p>
-      <span class="name">
-        <% unless Like.exists?(user_id: current_user.id, tweet_id: like.tweet.id)%>
-          <%=  like.tweet.likes.count %>
-          <%= form_tag("/likes?tweet_id=#{like.tweet.id}", :method => :post) do %>
-            <input type="submit" value="Like!">
-          <% end %>
-        <% else %>
-          <%=  like.tweet.likes.count %>
-          <%= form_tag("/likes/tweet.id/?tweet_id=#{like.tweet.id}", :method => :delete) do %>
-            <input type="submit" value="Not Like!">
-          <% end %>
-        <% end %>
-        <a href="/users/<%= like.tweet.user_id %>">
-          <span>投稿者</span><%= like.tweet.user.nickname %>
-        </a>
-      </span>
-    </div>
-<% end %>
+  <% @likes.each do |l| %>
+    <%= render partial: '/tweet/tweet', locals: { tweet: l.tweet} %>
+  <% end %>
+
 </div>

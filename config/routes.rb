@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root  'tweets#index'
 
-  resources :tweets, :exept => [:show]
+  resources :tweets, :except => [:show]
   # get     '/tweets'           => 'tweets#index'
   # post    '/tweets'           => 'tweets#create'
   # get     '/tweets/new'       => 'tweets#new'
