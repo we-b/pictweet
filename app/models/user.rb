@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   # association
   has_many :tweets
+  has_many :likes
 
   # validation
   validates_uniqueness_of :nickname

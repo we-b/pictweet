@@ -16,6 +16,17 @@
     <%= br(tweet.text) %>
   </p>
   <span class="name">
+    <% unless Like.exists?(user_id: current_user.id, tweet_id: tweet.id)%>
+      <%=  tweet.likes.count %>
+      <%= form_tag("/likes?tweet_id=#{tweet.id}", :method => :post) do %>
+        <input type="submit" value="Like!">
+      <% end %>
+    <% else %>
+      <%=  tweet.likes.count %>
+      <%= form_tag("/likes/tweet.id/?tweet_id=#{tweet.id}", :method => :delete) do %>
+        <input type="submit" value="Not Like!">
+      <% end %>
+    <% end %>
     <a href="/users/<%= tweet.user_id %>">
       <span>投稿者</span><%= tweet.user.nickname %>
     </a>
