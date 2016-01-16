@@ -36,8 +36,11 @@ gem 'sprockets', '2.11.0'
 gem 'devise'
 gem 'kaminari'
 
-# Use unicorn as the app server
-gem 'unicorn'
+group :production do
+  gem 'unicorn'
+  gem 'rails_12factor'
+  gem 'pg'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
