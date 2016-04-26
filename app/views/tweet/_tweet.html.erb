@@ -12,7 +12,9 @@
       </ul>
     </div>
   <% end %>
-  <%= simple_format(tweet.text) %>
+  <p>
+    <%= br(tweet.text) %>
+  </p>
   <span class="name">
     <%=  tweet.likes.count %>
     <% unless Like.exists?(user_id: current_user.id, tweet_id: tweet.id)%>

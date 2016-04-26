@@ -1,0 +1,6 @@
+<div class="contents row">
+  <% @likes.each do |l| %>
+    <%= render partial: '/tweet/tweet', locals: { tweet: l.tweet} %>
+  <% end %>
+
+</div>

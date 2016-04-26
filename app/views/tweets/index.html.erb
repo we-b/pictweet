@@ -1,4 +1,6 @@
 <div class="contents row">
-  <%= render @tweets %>
+  <% @tweets.each do |t| %>
+    <%= render partial: '/tweet/tweet', locals: { tweet: t} %>
+  <% end %>
   <%= paginate(@tweets) %>
 </div>
