@@ -33,7 +33,7 @@ gem 'compass-rails'
 gem 'pry-rails'
 gem 'sprockets', '2.11.0'
 
-gem 'devise'
+gem 'sorcery'
 gem 'kaminari'
 
 # Use unicorn as the app server
