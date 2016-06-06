@@ -2,14 +2,19 @@
   <% if current_user && tweet.user_id == current_user.id %>
     <div class="more">
       <span><%= image_tag 'arrow_top.png' %></span>
-      <ul class="more_list">
+    <ul class="more_list">
+      <li>
+        <%= link_to "詳細", tweet_path(tweet.id), method: :get %>
+      </li>
+      <% if user_signed_in? && current_user.id == tweet.user_id %>
         <li>
-          <%= link_to '編集', edit_tweet_path(tweet) %>
+          <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
         </li>
         <li>
-          <%= link_to '削除', tweet_path(tweet), :method => :delete %>
+          <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
         </li>
-      </ul>
+      <% end %>
+    </ul>
     </div>
   <% end %>
   <%= simple_format(tweet.text) %>
